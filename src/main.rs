@@ -14,7 +14,6 @@ use std::sync::Arc;
 use tokio::sync::Mutex;
 use tokio_stream::StreamExt;
 use with_key::DataWriter;
-
 type DataWriterState = Arc<Mutex<DataWriter<SensorConfig>>>;
 #[derive(Serialize, Deserialize, Clone, Debug, Default)]
 struct SensorConfig {
@@ -125,8 +124,8 @@ async fn put_handler_sensor_config(
     Json(payload): Json<SensorConfig>,
 ) -> (StatusCode, Json<SensorConfig>) {
     //let dds_writer = &mut writer.lock().await;
-    let dds_writer = &mut writer.lock().await;
-    if let Ok(_) = dds_writer.async_write(payload.clone(), None).await {
+    let writer = &mut writer.lock().await;
+    if let Ok(_) = writer.async_write(payload.clone(), None).await {
         (StatusCode::OK, Json(payload))
     } else {
         (
