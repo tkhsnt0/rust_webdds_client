@@ -7,15 +7,15 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'rust_web-dds_service'",
+            "name": "Debug executable 'rust_webdds_client'",
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=rust_web-dds_service",
-                    "--package=rust_web-dds_service"
+                    "--bin=rust_webdds_client",
+                    "--package=rust_webdds_client"
                 ],
                 "filter": {
-                    "name": "rust_web-dds_service",
+                    "name": "rust_webdds_client",
                     "kind": "bin"
                 }
             },
@@ -25,16 +25,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'rust_web-dds_service'",
+            "name": "Debug unit tests in executable 'rust_webdds_client'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=rust_web-dds_service",
-                    "--package=rust_web-dds_service"
+                    "--bin=rust_webdds_client",
+                    "--package=rust_webdds_client"
                 ],
                 "filter": {
-                    "name": "rust_web-dds_service",
+                    "name": "rust_webdds_client",
                     "kind": "bin"
                 }
             },
